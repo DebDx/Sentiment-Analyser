@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}">
+    
+    </head>
+    <body>
+     <header>
+         <div class="container">
+        <div id="brandname">
+            NLP app
+        </div>
+        <h2>Sentiment detector</h2>
+
+         </div>
+     </header>
+     <div class="ml-container">
+        <form method="POST">
+            <p>Enter your comments</p>
+            <textarea name="comment" rows="4" cols="50"></textarea>
+            <br/>
+            <input type="submit" class="btn-info" value="predict">
+
+        </form>
+
+     </div>
+     <div class="results">
+        {% if prediction==0 %}
+         <h2 style="color:red;">Negative comment</h2>
+         {% elif prediction==1 %}
+         <h2 style="color: blue;">Positive comment</h2>
+         {% endif %}
+         </div>
+    </body>
+</html>
